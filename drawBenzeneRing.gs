@@ -30,14 +30,12 @@ function drawBenzeneRing() {
   // sheet.setName("BenzeneRing");
 
   // init the sheet
-
-  const baseLineLen = 29;
-
-  sheet.insertRowsAfter(1, 101);
-  sheet.insertColumnsAfter(1, 101);
-
-  sheet.setColumnWidths(2, 100, 15);
-  sheet.setRowHeights(2, 100, 15);
+  // you can adjust following params
+  const baseLineLen = 77;
+  sheet.insertRowsAfter(1, 350);
+  sheet.insertColumnsAfter(1, 350);
+  sheet.setColumnWidths(2, 300, 3);
+  sheet.setRowHeights(2, 300, 3);
 
   // draw a benzene ring
   const startposx = 2;
