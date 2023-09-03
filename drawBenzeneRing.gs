@@ -13,11 +13,16 @@ function drawLine(sheet, x1, y1, x2, y2) {
     drawPixel(sheet, x1, y1);
 
     if (x1 === x2 && y1 === y2) break;
+
     var e2 = 2 * err;
     if (e2 > -dy) {
       err -= dy;
       x1 += sx;
     }
+
+    // Check if we've reached the end point
+    if (x1 === x2 && y1 === y2) break;
+
     if (e2 < dx) {
       err += dx;
       y1 += sy;
@@ -57,17 +62,17 @@ function drawBenzeneRing() {
   // draw inside lines
   const margin = Math.round(baseLineLen / 8);
   const ix11 = startposx + Math.ceil((margin * Math.sqrt(3)) / 2);
-  const iy11 = startposy + margin / 2;
+  const iy11 = startposy + Math.ceil(margin / 2);
   const ix12 = topx;
   const iy12 = topy + margin;
   const ix21 = ix11;
-  const iy21 = baseLineLen + startposy - margin / 2;
+  const iy21 = baseLineLen + startposy - Math.ceil(margin / 2);
   const ix22 = bottomx;
   const iy22 = bottomy - margin;
   const ix31 = rightlinex - Math.ceil((margin * Math.sqrt(3)) / 2);
-  const iy31 = startposy + margin / 2;
+  const iy31 = startposy + Math.ceil(margin / 2);
   const ix32 = ix31;
-  const iy32 = baseLineLen + startposy - margin / 2;
+  const iy32 = baseLineLen + startposy - Math.ceil(margin / 2);
   drawLine(sheet, ix11, iy11, ix12, iy12);
   drawLine(sheet, ix21, iy21, ix22, iy22);
   drawLine(sheet, ix31, iy31, ix32, iy32);
